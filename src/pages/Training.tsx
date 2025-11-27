@@ -55,6 +55,7 @@ const Training = () => {
   return (
     <DashboardLayout>
       <div className="max-w-3xl mx-auto px-4 py-8">
+        <h2 className="text-white text-2xl font-bold mb-6">All Levels</h2>
         <div className="space-y-4">
           {modules?.map((module, index) => {
             if (module.is_coming_soon) {

@@ -36,7 +36,7 @@ export function AppSidebar() {
   return <Sidebar collapsible="offcanvas" className="border-r-0">
       <SidebarHeader className="p-5 pb-2">
         <NavLink to="/" className="flex items-center gap-2">
-          <img alt="Sasifye" className="h-8 w-auto" src="/lovable-uploads/fa739a1e-5e5a-4933-8784-be74ff8f912c.png" />
+          <img alt="Motion Sites" className="h-8 w-auto" src={logo} />
         </NavLink>
       </SidebarHeader>
 
