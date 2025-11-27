@@ -5,7 +5,7 @@ import { z } from 'zod';
 import { useToast } from '@/hooks/use-toast';
 import { Input } from '@/components/ui/input';
 import { GradientFillButton } from '@/components/GradientFillButton';
-import logo from '@/assets/logo.png';
+import logo from '@/assets/emotionsites_logo.png';
 
 const loginSchema = z.object({
   email: z.string().trim().email({ message: 'Invalid email address' }),
@@ -127,7 +127,7 @@ const Auth = () => {
     <div className="min-h-screen flex flex-col items-center justify-center px-4" style={{ backgroundColor: '#08020e' }}>
       {/* Logo */}
       <a href="/" className="mb-12">
-        <img src={logo} alt="Design Rocket" className="h-10" />
+        <img src={logo} alt="Motion Sites" className="h-10" />
       </a>
       
       {/* Form Container */}
@@ -136,7 +136,7 @@ const Auth = () => {
           {isSignUp ? 'Create your account' : 'Welcome back'}
         </h1>
         <p className="text-muted-foreground text-center mb-8 text-sm">
-          {isSignUp ? 'Start your journey with Design Rocket' : 'Sign in to continue learning'}
+          {isSignUp ? 'Start your journey with Motion Sites' : 'Sign in to continue learning'}
         </p>
         
         <form onSubmit={handleSubmit} className="space-y-4">

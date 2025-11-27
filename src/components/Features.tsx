@@ -1,6 +1,6 @@
 import dashboardImage from "@/assets/dashboard.webp";
 import topLines from "@/assets/section_top_lines.png";
-import logo from "@/assets/logo.png";
+import logo from "@/assets/emotionsites_logo.png";
 import { FadeInUp } from "./FadeInUp";
 import { TiltCard } from "./TiltCard";
 import { SimpleBadge } from "./SimpleBadge";
@@ -34,7 +34,7 @@ export const Features = () => {
               <img 
                 className="h-12 w-auto object-contain" 
                 src={logo} 
-                alt="Design Rocket logo" 
+                alt="Motion Sites logo" 
               />
             </FadeInUp>
             <FadeInUp delay={0.2}>
