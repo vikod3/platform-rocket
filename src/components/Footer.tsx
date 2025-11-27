@@ -1,6 +1,6 @@
 import { GradientFillButton } from "./GradientFillButton";
 import { AnimatedLink } from "./AnimatedLink";
-import logo from "@/assets/logo.png";
+import logo from "@/assets/emotionsites_logo.png";
 
 export const Footer = () => {
   return (
@@ -13,7 +13,7 @@ export const Footer = () => {
               <img 
                 className="cursor-pointer object-contain align-middle inline-block h-11 w-auto" 
                 src={logo} 
-                alt="Design Rocket Logo" 
+                alt="Motion Sites Logo" 
               />
             </a>
             <p className="text-muted-foreground">SaaS Website Template</p>

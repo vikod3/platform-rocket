@@ -15,7 +15,7 @@ const Dashboard = () => {
         {/* Header Section */}
         <PageHeader
           videoUrl="https://www.loom.com/share/example-video"
-          videoTitle="Welcome to Design Rocket"
+          videoTitle="Welcome to Motion Sites"
           videoDuration="10:47"
         >
           {/* Play Icon */}
@@ -33,7 +33,7 @@ const Dashboard = () => {
           
           {/* Description */}
           <p className="text-muted-foreground text-sm sm:text-base max-w-md">
-            How Design Rocket works & what to expect in our program.
+            How Motion Sites works & what to expect in our program.
           </p>
         </PageHeader>
 

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { NavbarGradientButton } from "./NavbarGradientButton";
 import { Menu, User, LogOut, LayoutDashboard, FileText, Video, GraduationCap, Crown } from "lucide-react";
 import { cn } from "@/lib/utils";
-import logo from "@/assets/logo.png";
+import logo from "@/assets/emotionsites_logo.png";
 import { AnimatedText } from "./AnimatedText";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { useAuth } from "@/hooks/useAuth";
@@ -47,7 +47,7 @@ export const Navbar = () => {
   return <nav className="w-full py-5 px-8 flex items-center justify-between">
       {/* Logo */}
       <a href="/" className="flex items-center">
-        <img src={logo} alt="Design Rocket" className="h-8 w-auto object-contain" />
+        <img src={logo} alt="Motion Sites" className="h-8 w-auto object-contain" />
       </a>
 
       {/* Desktop Navigation Items - Hidden on mobile/tablet */}

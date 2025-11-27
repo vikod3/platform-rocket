@@ -52,7 +52,7 @@ export const InnerPages = () => {
             <SimpleBadge label="Inner Pages" />
           </FadeInUp>
           <FadeInUp delay={0.2}>
-            <h2 className="text-violet-100 text-6xl font-semibold">Main Pages of Design Rocket</h2>
+            <h2 className="text-violet-100 text-6xl font-semibold">Main Pages of Motion Sites</h2>
           </FadeInUp>
         </div>
         
