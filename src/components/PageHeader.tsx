@@ -1,13 +1,17 @@
-import { ReactNode } from "react";
+import { ReactNode, useState } from "react";
+import playIcon from "@/assets/play_icon.svg";
 
 interface PageHeaderProps {
   children: ReactNode;
   videoUrl: string;
   videoTitle: string;
   videoDuration: string;
+  thumbnailUrl?: string;
 }
 
-export function PageHeader({ children, videoUrl, videoTitle, videoDuration }: PageHeaderProps) {
+export function PageHeader({ children, videoUrl, videoTitle, videoDuration, thumbnailUrl }: PageHeaderProps) {
+  const [isPlaying, setIsPlaying] = useState(false);
+  
   // Extract Loom video ID from share URL
   const getLoomEmbedUrl = (url: string) => {
     const loomMatch = url.match(/loom\.com\/share\/([a-zA-Z0-9]+)/);
@@ -32,23 +36,53 @@ export function PageHeader({ children, videoUrl, videoTitle, videoDuration }: Pa
         <div className="bg-[#1A1D1F] rounded-2xl overflow-hidden">
           {/* Video Container */}
           <div className="relative">
-            {isLoomVideo ? (
-              <iframe
-                src={embedUrl}
-                className="w-full aspect-video rounded-t-2xl"
-                frameBorder="0"
-                allowFullScreen
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              />
+            {!isPlaying ? (
+              /* Preview with Play Button */
+              <div 
+                className="relative w-full aspect-video rounded-t-2xl cursor-pointer group"
+                onClick={() => setIsPlaying(true)}
+              >
+                {thumbnailUrl ? (
+                  <img 
+                    src={thumbnailUrl} 
+                    alt={videoTitle}
+                    className="w-full h-full object-cover rounded-t-2xl"
+                  />
+                ) : (
+                  <div className="w-full h-full bg-gradient-to-br from-violet-600/20 to-purple-600/20 rounded-t-2xl flex items-center justify-center">
+                    <div className="text-white/40 text-sm">Video Preview</div>
+                  </div>
+                )}
+                {/* Play Button Overlay */}
+                <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/30 transition-colors rounded-t-2xl">
+                  <img 
+                    src={playIcon} 
+                    alt="Play" 
+                    className="w-16 h-16 group-hover:scale-110 transition-transform"
+                  />
+                </div>
+              </div>
             ) : (
-              <video
-                src={videoUrl}
-                className="w-full aspect-video object-cover rounded-t-2xl"
-                loop
-                muted
-                playsInline
-                controls
-              />
+              /* Actual Video */
+              isLoomVideo ? (
+                <iframe
+                  src={embedUrl}
+                  className="w-full aspect-video rounded-t-2xl"
+                  frameBorder="0"
+                  allowFullScreen
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                />
+              ) : (
+                <video
+                  src={videoUrl}
+                  className="w-full aspect-video object-cover rounded-t-2xl"
+                  loop
+                  muted
+                  playsInline
+                  controls
+                  autoPlay
+                />
+              )
             )}
           </div>
 

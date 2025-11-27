@@ -17,6 +17,7 @@ const Dashboard = () => {
           videoUrl="https://www.loom.com/share/example-video"
           videoTitle="Welcome to Motion Sites"
           videoDuration="10:47"
+          thumbnailUrl="/lovable-uploads/fa739a1e-5e5a-4933-8784-be74ff8f912c.png"
         >
           {/* Play Icon */}
           <img src={playIcon} alt="Play" className="w-[42px] h-[42px] mb-4 sm:mb-6" />
