@@ -7,6 +7,7 @@ import { GradientFillButton } from "@/components/GradientFillButton";
 import { DashboardLayout } from "@/components/layout/DashboardLayout";
 import { Loader2 } from "lucide-react";
 import whiteFilledCheck from "@/assets/white_filled_check.svg";
+import playIcon from "@/assets/play_icon.svg";
 
 const Lesson = () => {
   const { videoId } = useParams<{ videoId: string }>();
@@ -16,6 +17,7 @@ const Lesson = () => {
   const [video, setVideo] = useState<CourseVideo | null>(null);
   const [lessonNumber, setLessonNumber] = useState<number>(1);
   const [isCompleting, setIsCompleting] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(false);
 
   useEffect(() => {
     if (modules && videoId) {
@@ -125,14 +127,27 @@ const Lesson = () => {
           <div className="lg:col-span-3">
             <div className="rounded-2xl overflow-hidden bg-[#1a1c1e]">
               {/* Video Embed */}
-              <div className="aspect-video w-full">
-                <iframe
-                  src={video.video_url}
-                  className="w-full h-full"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                />
+              <div className="aspect-video w-full relative">
+                {!isPlaying ? (
+                  <div className="relative w-full h-full cursor-pointer" onClick={() => setIsPlaying(true)}>
+                    <img 
+                      src="/images/lesson-video-preview.jpg" 
+                      alt="Video preview" 
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <img src={playIcon} alt="Play" className="w-16 h-16" />
+                    </div>
+                  </div>
+                ) : (
+                  <iframe
+                    src={video.video_url}
+                    className="w-full h-full"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  />
+                )}
               </div>
               {/* Divider */}
               <div className="h-0.5 bg-[#272B30]" />
