@@ -28,6 +28,7 @@ const Templates = () => {
           videoUrl="/hero.mp4"
           videoTitle="Watch this before using the templates"
           videoDuration="5 minutes"
+          thumbnailUrl="/images/dashboard-video-preview.png"
         >
           <img src={lovableLogo} alt="Lovable" className="h-10 mb-4" />
           <p className="text-[#6F767E] text-lg">Premium AI Web Design Systems</p>
