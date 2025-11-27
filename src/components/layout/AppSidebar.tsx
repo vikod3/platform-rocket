@@ -1,4 +1,4 @@
-import { Home, GraduationCap, LayoutGrid, Video, LogOut, ChevronRight, Crown } from "lucide-react";
+import { Home, GraduationCap, LayoutGrid, Video, LogOut, ChevronRight, Crown, Puzzle, Users, BookOpen, UserCheck } from "lucide-react";
 import { NavLink, useLocation } from "react-router-dom";
 import { useAuth } from "@/hooks/useAuth";
 import { Sidebar, SidebarContent, SidebarFooter, SidebarGroup, SidebarGroupContent, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem } from "@/components/ui/sidebar";
@@ -13,17 +13,21 @@ const navItems = [{
   url: "/training",
   icon: GraduationCap
 }, {
-  title: "Templates",
-  url: "/templates",
-  icon: LayoutGrid
+  title: "Puzzles",
+  url: "/puzzles",
+  icon: Puzzle
 }, {
-  title: "Video Backgrounds",
-  url: "/video-backgrounds",
-  icon: Video
+  title: "Community",
+  url: "/community",
+  icon: Users
 }, {
-  title: "Premium",
-  url: "/premium",
-  icon: Crown
+  title: "Openings",
+  url: "/openings",
+  icon: BookOpen
+}, {
+  title: "Coaching",
+  url: "/coaching",
+  icon: UserCheck
 }];
 export function AppSidebar() {
   const {
