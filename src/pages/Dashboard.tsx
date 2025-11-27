@@ -5,28 +5,20 @@ import playIcon from '@/assets/play_icon.svg';
 import { CurrentLessonCard } from '@/components/dashboard/CurrentLessonCard';
 import { TemplatesPreviewCard } from '@/components/dashboard/TemplatesPreviewCard';
 import { MotionGalleryCard } from '@/components/dashboard/MotionGalleryCard';
-
 const Dashboard = () => {
-  const { user } = useAuth();
-
-  return (
-    <DashboardLayout>
+  const {
+    user
+  } = useAuth();
+  return <DashboardLayout>
       <div className="w-full space-y-6 sm:space-y-8">
         {/* Header Section */}
-        <PageHeader
-          videoUrl="https://www.loom.com/share/example-video"
-          videoTitle="Welcome to Motion Sites"
-          videoDuration="10:47"
-          thumbnailUrl="/images/dashboard-video-preview.png"
-        >
+        <PageHeader videoUrl="https://www.loom.com/share/example-video" videoTitle="Welcome to Motion Sites" videoDuration="10:47" thumbnailUrl="/images/dashboard-video-preview.png">
           {/* Play Icon */}
           <img src={playIcon} alt="Play" className="w-[42px] h-[42px] mb-4 sm:mb-6" />
           
           {/* Headings */}
           <div className="space-y-2 font-semibold text-lg sm:text-[22px] mb-3">
-            <h1 className="gradient-text">
-              Pre-Program: Before You Start
-            </h1>
+            <h1 className="gradient-text">Before You Start</h1>
             <h2 className="text-foreground">
               Welcome! Here's what to do first
             </h2>
@@ -54,8 +46,6 @@ const Dashboard = () => {
           </div>
         </div>
       </div>
-    </DashboardLayout>
-  );
+    </DashboardLayout>;
 };
-
 export default Dashboard;
