@@ -19,9 +19,7 @@ const Dashboard = () => {
           {/* Headings */}
           <div className="space-y-2 font-semibold text-lg sm:text-[22px] mb-3">
             <h1 className="gradient-text">Before You Start</h1>
-            <h2 className="text-foreground">
-              Welcome! Here's what to do first
-            </h2>
+            
           </div>
           
           {/* Description */}
