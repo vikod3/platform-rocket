@@ -52,9 +52,49 @@ const Training = () => {
     );
   }
 
+  const currentModuleIndex = getCurrentModuleIndex();
+  const currentModule = modules?.[currentModuleIndex];
+  const allModules = modules?.filter(m => !m.is_coming_soon) || [];
+
   return (
     <DashboardLayout>
       <div className="max-w-3xl mx-auto px-4 py-8">
+        {/* Current Level Section */}
+        {currentModule && (
+          <div className="mb-8">
+            <div className="space-y-4">
+              {modules?.map((module, index) => {
+                if (module.is_coming_soon) {
+                  return null;
+                }
+                
+                const allVideos = modules.filter(m => !m.is_coming_soon).flatMap(m => m.videos);
+                const status = getModuleStatus(module);
+                
+                // Only show current module here
+                if (status !== 'current') {
+                  return null;
+                }
+                
+                return (
+                  <CourseModuleCard
+                    key={module.id}
+                    module={module}
+                    status={status}
+                    isExpanded={expandedIndex === index}
+                    onToggle={() => handleToggle(index)}
+                    progress={getModuleProgress(module)}
+                    getVideoStatus={(videoId) => getVideoStatus(videoId, allVideos)}
+                    onVideoClick={handleVideoClick}
+                    onContinueLearning={handleContinueLearning}
+                  />
+                );
+              })}
+            </div>
+          </div>
+        )}
+
+        {/* All Levels Section */}
         <h2 className="text-white text-2xl font-bold mb-6">All Levels</h2>
         <div className="space-y-4">
           {modules?.map((module, index) => {
@@ -63,11 +103,14 @@ const Training = () => {
             }
             
             const allVideos = modules.filter(m => !m.is_coming_soon).flatMap(m => m.videos);
+            const status = getModuleStatus(module);
+            
+            // Show all modules in All Levels section
             return (
               <CourseModuleCard
                 key={module.id}
                 module={module}
-                status={getModuleStatus(module)}
+                status={status}
                 isExpanded={expandedIndex === index}
                 onToggle={() => handleToggle(index)}
                 progress={getModuleProgress(module)}
