@@ -5,7 +5,7 @@ import { Badge } from "./Badge";
 import { FadeInUp } from "./FadeInUp";
 export const Hero = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const hlsUrl = "https://customer-cbeadsgr09pnsezs.cloudflarestream.com/b809e5e84610dff4fc77f6fd5ad4795c/manifest/video.m3u8";
+  const hlsUrl = "https://customer-cbeadsgr09pnsezs.cloudflarestream.com/90bb1b34646b81b3b63e5a854ea00da3/manifest/video.m3u8";
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
@@ -23,7 +23,7 @@ export const Hero = () => {
       };
     }
   }, []);
-  return <section className="relative flex flex-col items-center justify-start py-16 px-8 text-center overflow-hidden">
+  return <section className="relative flex flex-col items-center justify-center min-h-screen px-8 text-center overflow-hidden">
       {/* Video Background */}
       <div className="absolute inset-0 z-[1]">
         <video ref={videoRef} autoPlay loop muted playsInline className="w-full h-full object-cover opacity-30" />
