@@ -24,14 +24,10 @@ const Templates = () => {
     <DashboardLayout>
       <div className="space-y-8">
         {/* Header */}
-        <PageHeader
-          videoUrl="/hero.mp4"
-          videoTitle="Watch this before using the templates"
-          videoDuration="5 minutes"
-        >
+        <div className="mb-5 md:mb-6 lg:mb-10">
           <img src={lovableLogo} alt="Lovable" className="h-10 mb-4" />
           <p className="text-[#6F767E] text-lg">Premium AI Web Design Systems</p>
-        </PageHeader>
+        </div>
 
         {/* Templates Grid */}
         {isLoading ? (
