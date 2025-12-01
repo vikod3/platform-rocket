@@ -1,5 +1,4 @@
 import { DashboardLayout } from "@/components/layout/DashboardLayout";
-import { PageHeader } from "@/components/PageHeader";
 import { VideoBackgroundCard } from "@/components/VideoBackgroundCard";
 import videoIcon from "@/assets/video_icon.svg";
 import { useQuery } from "@tanstack/react-query";
@@ -21,11 +20,7 @@ const VideoBackgrounds = () => {
 
   return (
     <DashboardLayout>
-      <PageHeader 
-        videoUrl="https://www.loom.com/share/2ac1d7b45c6c46cca3f6aa0e817e8d5f" 
-        videoTitle="Watch this before using the library" 
-        videoDuration="8 minutes"
-      >
+      <div className="mb-5 md:mb-6 lg:mb-10">
         <div className="space-y-4">
           <div className="w-12 h-12 rounded-xl flex items-center justify-center">
             <img src={videoIcon} alt="Video" className="w-10 h-10" />
@@ -40,7 +35,7 @@ const VideoBackgrounds = () => {
             </p>
           </div>
         </div>
-      </PageHeader>
+      </div>
 
       {/* Video Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
