@@ -1,6 +1,5 @@
 import { useAuth } from '@/hooks/useAuth';
 import { DashboardLayout } from '@/components/layout/DashboardLayout';
-import { PageHeader } from '@/components/PageHeader';
 import playIcon from '@/assets/play_icon.svg';
 import { CurrentLessonCard } from '@/components/dashboard/CurrentLessonCard';
 import { TemplatesPreviewCard } from '@/components/dashboard/TemplatesPreviewCard';
@@ -13,29 +12,43 @@ const Dashboard = () => {
     <DashboardLayout>
       <div className="w-full space-y-6 sm:space-y-8">
         {/* Header Section */}
-        <PageHeader
-          videoUrl="https://www.loom.com/share/example-video"
-          videoTitle="Welcome to Design Rocket"
-          videoDuration="10:47"
-        >
-          {/* Play Icon */}
-          <img src={playIcon} alt="Play" className="w-[42px] h-[42px] mb-4 sm:mb-6" />
-          
-          {/* Headings */}
-          <div className="space-y-2 font-semibold text-lg sm:text-[22px] mb-3">
-            <h1 className="gradient-text">
-              Pre-Program: Before You Start
-            </h1>
-            <h2 className="text-foreground">
-              Welcome! Here's what to do first
-            </h2>
+        <div className="flex flex-col lg:flex-row gap-5 md:gap-6 lg:gap-12 items-start lg:items-center mb-5 md:mb-6 lg:mb-10">
+          {/* Left Column - Content */}
+          <div className="flex-1 min-w-0">
+            {/* Play Icon */}
+            <img src={playIcon} alt="Play" className="w-[42px] h-[42px] mb-4 sm:mb-6" />
+            
+            {/* Headings */}
+            <div className="space-y-2 font-semibold text-lg sm:text-[22px] mb-3">
+              <h1 className="gradient-text">
+                Pre-Program: Before You Start
+              </h1>
+              <h2 className="text-foreground">
+                Welcome! Here's what to do first
+              </h2>
+            </div>
+            
+            {/* Description */}
+            <p className="text-muted-foreground text-sm sm:text-base max-w-md">
+              How Design Rocket works & what to expect in our program.
+            </p>
           </div>
-          
-          {/* Description */}
-          <p className="text-muted-foreground text-sm sm:text-base max-w-md">
-            How Design Rocket works & what to expect in our program.
-          </p>
-        </PageHeader>
+
+          {/* Right Column - Preview Image */}
+          <div className="w-full lg:w-[420px] flex-shrink-0">
+            <div className="bg-[#1A1D1F] rounded-2xl overflow-hidden">
+              <img 
+                src="/images/placeholders/placeholder-7.png" 
+                alt="Welcome Preview" 
+                className="w-full aspect-video object-cover"
+              />
+              <div className="p-5">
+                <h3 className="text-white font-semibold text-lg">Welcome to Design Rocket</h3>
+                <p className="text-[#6F767E] text-sm mt-1">10:47</p>
+              </div>
+            </div>
+          </div>
+        </div>
 
         {/* Current Lesson Card - Full Width */}
         <CurrentLessonCard />
